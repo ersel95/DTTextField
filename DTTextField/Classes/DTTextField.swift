@@ -275,6 +275,16 @@ public class DTTextField: UITextField {
         addSubview(lblError)
         
         layer.insertSublayer(dtLayer, at: 0)
+        self.setCustomJigleUI()
+    }
+    
+    public func setCustomJigleUI() {
+        self.canShowBorder = false
+        self.floatPlaceholderActiveColor = UIColor.color1
+        self.font = JEFonts.font(weight: .book, size: 15)
+        self.textColor = .darkGreyBlue
+        self.floatPlaceholderFont = JEFonts.font(weight: .book, size: 11)
+        self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.font: JEFonts.font(weight: .book, size: 15), NSAttributedString.Key.foregroundColor: UIColor.lightPeach])
     }
     
     fileprivate func showErrorMessage(){
